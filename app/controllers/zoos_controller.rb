@@ -6,8 +6,11 @@ class ZoosController < ApplicationController
   def create
     @zoo = Zoo.new(zoo_params)
     
-    @zoo.save
-    redirect_to @zoo
+    if @zoo.save
+      redirect_to @zoo
+    else
+      render 'new'
+    end
   end
 
   def new
