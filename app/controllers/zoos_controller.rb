@@ -13,11 +13,25 @@ class ZoosController < ApplicationController
     end
   end
 
+  def edit
+    @zoo = Zoo.find(params[:id])
+  end
+
   def new
   end
 
   def show
     @zoo = Zoo.find(params[:id])
+  end
+
+  def update
+    @zoo = Zoo.find(params[:id])
+   
+    if @zoo.update(zoo_params)
+      redirect_to @zoo
+    else
+      render 'edit'
+    end
   end
 
   private
