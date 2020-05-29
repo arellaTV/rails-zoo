@@ -6,5 +6,11 @@ Rails.application.routes.draw do
     resources :animals
   end
 
+  namespace 'admin' do
+    resources :zoos do
+      resources :animals
+    end
+  end
+
   root 'homepage#index'
 end
