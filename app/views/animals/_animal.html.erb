@@ -7,3 +7,9 @@
 <strong>Description:</strong>
 <%= animal.description %>
 </p>
+
+<p>
+<%= link_to 'Delete Animal', [animal.zoo, animal],
+             method: :delete,
+             data: { confirm: 'Are you sure?' } %>
+</p>
