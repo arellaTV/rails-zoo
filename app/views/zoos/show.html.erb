@@ -13,6 +13,13 @@
 <%= @zoo.address %>
 </p>
 
+<h2>Animals</h2>
+<% if @zoo.animals.length > 0 %>
+  <%= render @zoo.animals %>
+<% else %>
+  <p>There are no animals recorded in this listing yet.</p>
+<% end %>
+
 <h2>Add an animal:</h2>
 <%= form_with(model: [ @zoo, @zoo.animals.build ], local: true) do |form| %>
   <p>
