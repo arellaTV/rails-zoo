@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   get 'homepage/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :zoos
+  resources :zoos do
+    resources :animals
+  end
 
   root 'homepage#index'
 end
