@@ -1,2 +1,19 @@
-# rails-zoo
-An app to keep track of zoos and the animals inside them
+# README
+* Ruby version: 2.7.1
+
+* System dependencies
+- Ruby 2.7.1
+- SQLite3 3.19.3
+- Node 12.15.0
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
