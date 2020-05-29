@@ -3,6 +3,18 @@ class ZoosController < ApplicationController
   end
 
   def create
-    render plain: params[:zoo].inspect
+    @zoo = Zoo.new(zoo_params)
+    
+    @zoo.save
+    redirect_to @zoo
   end
+
+  def show
+    @zoo = Zoo.find(params[:id])
+  end
+
+  private
+    def zoo_params
+      params.require(:zoo).permit(:name, :description, :address);
+    end
 end
