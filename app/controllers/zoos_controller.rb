@@ -18,6 +18,7 @@ class ZoosController < ApplicationController
   end
 
   def new
+    @zoo = Zoo.new
   end
 
   def show
