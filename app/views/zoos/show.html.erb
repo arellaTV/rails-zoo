@@ -13,5 +13,20 @@
 <%= @zoo.address %>
 </p>
 
+<h2>Add an animal:</h2>
+<%= form_with(model: [ @zoo, @zoo.animals.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_zoo_path(@zoo) %>
 <%= link_to 'Back to zoo list', zoos_path %>
