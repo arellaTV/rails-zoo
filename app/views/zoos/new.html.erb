@@ -1,6 +1,20 @@
 <h1>New Zoo</h1>
 
 <%= form_with scope: :zoo, url: zoos_path, local: true do |form| %>
+  <% if @zoo.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@zoo.errors.count, "error") %> prohibited
+        this zoo from being saved:
+      </h2>
+      <ul>
+        <% @zoo.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>   
+  <% end %>
+
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
