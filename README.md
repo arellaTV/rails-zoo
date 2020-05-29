@@ -5,6 +5,7 @@
 - Ruby 2.7.1
 - SQLite3 3.19.3
 - Node 12.15.0
+- Yarn 1.22.4
 
 * Configuration
 
