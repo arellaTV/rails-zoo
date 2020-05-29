@@ -1,0 +1,11 @@
+<h1>Zoo Directory</h1>
+ 
+<div class="zoo-list">
+  <% @zoos.each do |zoo| %>
+    <div class="zoo-list__item">
+      <h2><%= zoo.name %></h2>
+      <p><%= zoo.description %></p>
+      <p><%= link_to 'Show', zoo_path(zoo) %></p>
+    </div>
+  <% end %>
+</div>

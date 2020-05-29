@@ -1,5 +1,6 @@
 class ZoosController < ApplicationController
-  def new
+  def index
+    @zoos = Zoo.all
   end
 
   def create
@@ -7,6 +8,9 @@ class ZoosController < ApplicationController
     
     @zoo.save
     redirect_to @zoo
+  end
+
+  def new
   end
 
   def show
