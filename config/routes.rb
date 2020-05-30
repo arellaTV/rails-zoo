@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/user' => "admin/zoos#index", :as => :user_root
+
   root 'homepage#index'
 end
