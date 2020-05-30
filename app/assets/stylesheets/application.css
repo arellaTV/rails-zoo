@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+ .page-footer {
+   margin-top: 60px;
+ }
+
+ /* Override button colors */
+ .btn input {
+   color: white;
+ }

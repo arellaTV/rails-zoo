@@ -13,23 +13,50 @@
       </ul>
     </div>
   <% end %>
- 
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
 
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+  <div class="row">
+    <iframe id="map-preview" width="100%" height="450" frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ1cdRl2XAwoAR_WUoKRXLQTY&key=AIzaSyD61sv96TYTvIyQ6k-7jQna0XjJUVUST3w" allowfullscreen></iframe>
+  </div>
 
-  <p>
-    <%= form.label :address %><br>
-    <%= form.text_area :address %>
-  </p>
+  <div class="row">
+    <div class="input-field col s6">
+      <i class="material-icons prefix">account_circle</i>
+      <%= form.text_field :name, placeholder: "Los Angeles Zoo", 'data-length': 120 %>
+      <%= form.label :name %>
+    </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
+    <div class="input-field col s6">
+      <i class="material-icons prefix">map</i>
+      <%= form.text_area :address, class: "materialize-textarea", 'data-length': 120 %>
+      <%= form.label :address %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">description</i>
+      <%= form.text_area :description, class: "materialize-textarea", 'data-length': 512 %>
+      <%= form.label :description %>
+    </div>
+
+    <div class="input-field col s12">
+      <%= form.submit class: "waves-effect waves-light btn white-text" %>
+    </div>
+  </div>
+
+  <script>
+  var addressInput = document.getElementById("zoo_address");
+  var map = document.getElementById("map-preview");
+
+  // If there's a value for the address input, set the map preview's source to the input value
+  if (addressInput.value) map.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyD61sv96TYTvIyQ6k-7jQna0XjJUVUST3w&q=" + addressInput.value;
+
+  addressInput.addEventListener("keyup", function(event) {
+    const query = encodeURI(event.target.value);
+    console.log({ query });
+    map.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyD61sv96TYTvIyQ6k-7jQna0XjJUVUST3w&q=" + query;
+  });
+  console.dir({ addressInput });
+  </script>
 <% end %>
