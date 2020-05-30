@@ -3,20 +3,37 @@
   <h2><%= @zoo.name %></h2>
   <div class="divider"></div>
 </div>
+
+<div class="row">
+  <% if @zoo.cover_photo.attached? %>
+    <div class="col s12">
+      <%= image_tag (@zoo.cover_photo.variant(resize_to_fill: [1200, 630, { gravity: 'Center' }])), class: "materialboxed", width: "100%" %>
+
+    </div>
+  <% end %>
+</div>
  
 <div class="section">
-  <h3>Details</h3>
-  <p><%= @zoo.address %></p>
-  <p><%= @zoo.description %></p>
+  <div class="row">
+    <div class="col s12">
+      <h3>Details</h3>
+      <p><%= @zoo.address %></p>
+      <p><%= @zoo.description %></p>
+    </div>
+  </div>
 </div>
 
 <div class="section">
-  <h3>Animals</h3>
-  <ul class="collection">
-    <% if @zoo.animals.length > 0 %>
-      <%= render @zoo.animals %>
-    <% else %>
-      <li class="collection-item">There are no animals recorded in this listing yet.</li>
-    <% end %>
-  </ul>
+  <div class="row">
+    <div class="col s12">
+      <h3>Animals</h3>
+      <ul class="collection">
+        <% if @zoo.animals.length > 0 %>
+          <%= render @zoo.animals %>
+        <% else %>
+          <li class="collection-item">There are no animals recorded in this listing yet.</li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
