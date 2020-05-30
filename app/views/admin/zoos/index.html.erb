@@ -2,15 +2,19 @@
 
 <%= link_to 'New zoo', new_admin_zoo_path %>
 
-<div class="zoo-list">
+<ul class="zoo-list collection">
   <% @zoos.each do |zoo| %>
-    <div class="zoo-list__item">
-      <h2><%= zoo.name %></h2>
-      <p><%= zoo.description %></p>
-      <p><%= link_to 'Edit', edit_admin_zoo_path(zoo) %></td>
-      <p><%= link_to 'Delete', admin_zoo_path(zoo),
-      method: :delete,
-      data: { confirm: 'Are you sure?' } %></p>
-    </div>
+    <li class="zoo-list__item collection-item">
+      <div>
+        <b><%= link_to zoo.name, edit_admin_zoo_path(zoo) %></b>
+        <span class="secondary-content">
+          <%= link_to admin_zoo_path(zoo),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } do %>
+            <i class="material-icons">delete</i>
+          <% end %>
+        </span>
+      </div>
+    </li>
   <% end %>
-</div>
+</ul>
