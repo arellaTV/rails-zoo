@@ -2,26 +2,25 @@
 <ul id="sidebar" class="sidenav sidenav-fixed">
   <li>
     <div class="user-view">
-      <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
-        <i class="large material-icons">account_circle</i>
-      <% end %>
+      <i class="large material-icons icon-teal">account_circle</i>
       <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
         <span class="email"><%= current_user.email %></span>
       <% end %>
     </div>
   </li>
+  <li><a href="/zoos"><i class="material-icons waves-effect">open_in_browser</i>View Website</a></li>
   <li><div class="divider"></div></li>
   <li><a class="subheader">Content Types</a></li>
   <li><a href="/admin/zoos"><i class="material-icons waves-effect">pets</i>Zoos</a></li>
   <li><div class="divider"></div></li>
-  <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-  <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+  <li><a class="subheader">Profile</a></li>
+  <li><%= link_to edit_user_registration_path, :class => 'navbar-link' do %><i class="material-icons waves-effect">portrait</i>Edit Profile<% end %></li>
+  <li><%= link_to destroy_user_session_path, method: :delete, :class => 'navbar-link'  do %><i class="material-icons waves-effect">exit_to_app</i>Logout<% end %></li>
 </ul>
-<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    var sidebarElement = document.getElementById('sidebar');
-    var instance = M.Sidenav.init(sidebarElement);
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems);
   });
 </script>
 <style>

@@ -17,6 +17,10 @@
   </head>
 
   <body>
+    <header>
+      <%= content_for :header %>
+    </header>
+
     <main class="container">
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
