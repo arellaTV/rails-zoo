@@ -1,13 +1,18 @@
 <%= form_with(model: [ 'admin', @zoo, @zoo.animals.build ], local: true) do |form| %>
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+  <div class="row">
+    <div class="input-field col s6">
+      <i class="material-icons prefix">account_circle</i>
+      <%= form.text_field :name, 'data-length': 120 %>
+      <%= form.label :name %>
+    </div>
+
+    <div class="input-field col s12">
+      <i class="material-icons prefix">description</i>
+      <%= form.text_area :description, class: "materialize-textarea", 'data-length': 512 %>
+      <%= form.label :description %>
+    </div>
+  </div>
+  <div class="input-field col s12">
+    <%= form.submit class: "waves-effect waves-light btn white-text" %>
+  </div>
 <% end %>
