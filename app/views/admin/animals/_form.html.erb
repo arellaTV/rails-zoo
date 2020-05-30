@@ -22,6 +22,14 @@
       </div>
     </div>
   </div>
+
+  <div class="section">
+    <h3>Animals</h3>
+    <ul class="collection">
+      <%= render 'zoo_selector', collection: @zoos %>
+    </ul>
+  </div>
+
   <div class="input-field col s12">
     <%= form.submit class: "waves-effect waves-light btn white-text" %>
   </div>

@@ -6,7 +6,8 @@ class Admin::AnimalsController < ApplicationController
   end
 
   def new
-    @zoo = Animal.new
+    @animal = Animal.new
+    @zoos = Zoo.all
   end
 
   def create
