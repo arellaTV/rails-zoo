@@ -16,8 +16,9 @@
 
   <div class="row">
     <% if @zoo.cover_photo.attached? %>
-      <div class="col s12 m6 offset-m3">
-        <img class="materialboxed" src="<%= url_for(@zoo.cover_photo) %>" width="100%" />
+      <div class="col s12">
+        <%= image_tag (@zoo.cover_photo.variant(resize_to_fill: [1200, 630, { gravity: 'Center' }])), class: "materialboxed", width: "100%" %>
+
       </div>
     <% end %>
 

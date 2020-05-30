@@ -1,6 +1,6 @@
 <li class="collection-item avatar">
   <% if @zoo.cover_photo.attached? %>
-    <img src="<%= url_for(@zoo.cover_photo) %>" alt="" class="circle">
+    <img src="<%= url_for(@zoo.cover_photo.variant(resize_to_fill: [42, 42, { gravity: 'Center' }])) %>" alt="" class="circle">
   <% else %>
     <i class="material-icons circle">pets</i>
   <% end %>
