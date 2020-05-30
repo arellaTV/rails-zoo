@@ -17,8 +17,6 @@
   </head>
 
   <body>
-    <%= render 'shared/sidebar' %>
-
     <main class="container">
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
@@ -27,7 +25,7 @@
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
 
-      <%= yield %>
+      <%= content_for?(:content) ? yield(:content) : yield %>
 
     </main>
 
