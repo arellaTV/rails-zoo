@@ -13,12 +13,10 @@ class Admin::ZoosController < ApplicationController
 
   def edit
     @zoo = Zoo.find(params[:id])
-    @zoo.cover_photo.attach(params[:cover_photo])
   end
 
   def create
     @zoo = Zoo.new(zoo_params)
-    @zoo.cover_photo.attach(params[:cover_photo])
     
     if @zoo.save
       redirect_to "/admin/zoos"
@@ -29,7 +27,6 @@ class Admin::ZoosController < ApplicationController
 
   def update
     @zoo = Zoo.find(params[:id])
-    @zoo.cover_photo.attach(params[:cover_photo])
    
     if @zoo.update(zoo_params)
       redirect_to "/admin/zoos"
