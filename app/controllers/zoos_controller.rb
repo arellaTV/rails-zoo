@@ -1,4 +1,6 @@
 class ZoosController < ApplicationController
+  layout "frontend"
+
   def index
     @zoos = Zoo.all
   end
