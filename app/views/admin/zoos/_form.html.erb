@@ -50,11 +50,17 @@ src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ1cdRl2XAwoAR_WUoK
   var map = document.getElementById("map-preview");
 
   // If there's a value for the address input, set the map preview's source to the input value
-  if (addressInput.value) map.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyD61sv96TYTvIyQ6k-7jQna0XjJUVUST3w&q=" + addressInput.value;
+  if (addressInput.value) {
+    map.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyD61sv96TYTvIyQ6k-7jQna0XjJUVUST3w&q=" + addressInput.value;
+  // If there's no value, don't show the map initially
+  } else {
+    map.style.display = "none";
+  }
 
   addressInput.addEventListener("keyup", function(event) {
     const query = encodeURI(event.target.value);
     map.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyD61sv96TYTvIyQ6k-7jQna0XjJUVUST3w&q=" + query;
+    map.style.display = "block";
   });
   </script>
 <% end %>
