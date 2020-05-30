@@ -1,0 +1,30 @@
+
+<div class="section">
+  <h2>Animals</h2>
+  <div class="divider"></div>
+</div>
+
+<div class="section">
+  <%= link_to new_admin_animal_path, class: "waves-effect waves-light btn" do %>
+    <i class="material-icons left">add</i> Add an Animal
+  <% end %>
+</div>
+
+<div class="section">
+  <ul class="animal-list collection">
+    <% @animals.each do |animal| %>
+      <li class="animal-list__item collection-item">
+        <div>
+          <b><%= link_to animal.name, edit_admin_animal_path(animal) %></b>
+          <span class="secondary-content">
+            <%= link_to admin_animal_path(animal),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } do %>
+              <i class="material-icons">delete</i>
+            <% end %>
+          </span>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
