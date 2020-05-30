@@ -1,4 +1,14 @@
 class Admin::AnimalsController < ApplicationController
+  layout "admin"
+
+  def index
+    @animals = Animal.all
+  end
+
+  def new
+    @zoo = Animal.new
+  end
+
   def create
     @zoo = Zoo.find(params[:zoo_id])
     @animal = @zoo.animals.create(animal_params)
