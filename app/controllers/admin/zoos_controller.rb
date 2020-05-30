@@ -17,7 +17,7 @@ class Admin::ZoosController < ApplicationController
     @zoo = Zoo.new(zoo_params)
     
     if @zoo.save
-      redirect_to @zoo
+      redirect_to "/admin/zoos"
     else
       render 'new'
     end
@@ -27,7 +27,7 @@ class Admin::ZoosController < ApplicationController
     @zoo = Zoo.find(params[:id])
    
     if @zoo.update(zoo_params)
-      redirect_to @zoo
+      redirect_to "/admin/zoos"
     else
       render 'edit'
     end
