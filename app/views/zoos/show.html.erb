@@ -1,23 +1,22 @@
-<h1>
-<strong>Name:</strong>
-<%= @zoo.name %>
-</h1>
+<div class="section">
+  <%= link_to 'Back to Zoo Directory', zoos_path %>
+  <h2><%= @zoo.name %></h2>
+  <div class="divider"></div>
+</div>
+ 
+<div class="section">
+  <h3>Details</h3>
+  <p><%= @zoo.address %></p>
+  <p><%= @zoo.description %></p>
+</div>
 
-<p>
-<strong>Description:</strong>
-<%= @zoo.description %>
-</p>
-
-<p>
-<strong>Address:</strong>
-<%= @zoo.address %>
-</p>
-
-<h2>Animals</h2>
-<% if @zoo.animals.length > 0 %>
-  <%= render @zoo.animals %>
-<% else %>
-  <p>There are no animals recorded in this listing yet.</p>
-<% end %>
-
-<%= link_to 'Back to Zoo Directory', zoos_path %>
+<div class="section">
+  <h3>Animals</h3>
+  <ul class="collection">
+    <% if @zoo.animals.length > 0 %>
+      <%= render @zoo.animals %>
+    <% else %>
+      <li class="collection-item">There are no animals recorded in this listing yet.</li>
+    <% end %>
+  </ul>
+</div>
