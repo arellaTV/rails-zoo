@@ -1,0 +1,28 @@
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Rails Zoo</h5>
+        <p class="grey-text text-lighten-4">Logged in as <strong><%= current_user.email %></strong></p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Profile Settings</h5>
+        <ul>
+          <% if user_signed_in? %>
+            <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link grey-text text-lighten-3' %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link grey-text text-lighten-3'  %></li>
+          <% else %>
+            <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link grey-text text-lighten-3'  %></li>
+            <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link grey-text text-lighten-3'  %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2020 Jeremiah Arella
+    <a class="grey-text text-lighten-4 right" href="https://creativealchemy.org">Portfolio</a>
+    </div>
+  </div>
+</footer>
