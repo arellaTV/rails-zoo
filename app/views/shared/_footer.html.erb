@@ -1,9 +1,11 @@
-<footer class="page-footer">
+<footer class="page-footer indigo darken-3">
   <div class="container">
     <div class="row">
       <div class="col l6 s12">
         <h5 class="white-text">Rails Zoo</h5>
-        <p class="grey-text text-lighten-4">Logged in as <strong><%= current_user.email %></strong></p>
+        <% if user_signed_in? %>
+          <p class="grey-text text-lighten-4">Logged in as <strong><%= current_user.try(:email) %></strong></p>
+        <% end %>
       </div>
       <div class="col l4 offset-l2 s12">
         <h5 class="white-text">Profile Settings</h5>
@@ -19,7 +21,7 @@
       </div>
     </div>
   </div>
-  <div class="footer-copyright">
+  <div class="footer-copyright indigo darken-4">
     <div class="container">
     © 2020 Jeremiah Arella
     <a class="grey-text text-lighten-4 right" href="https://creativealchemy.org">Portfolio</a>

@@ -1,0 +1,40 @@
+<% if user_signed_in? %>
+<ul id="sidebar" class="sidenav sidenav-fixed">
+  <li>
+    <div class="user-view">
+      <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
+        <i class="large material-icons">account_circle</i>
+      <% end %>
+      <%= link_to edit_user_registration_path, :class => 'navbar-link' do %>
+        <span class="email"><%= current_user.email %></span>
+      <% end %>
+    </div>
+  </li>
+  <li><a href="/admin/zoos"><i class="material-icons waves-effect">home</i>Home</a></li>
+  <li><div class="divider"></div></li>
+  <li><a class="subheader">Content Types</a></li>
+  <li><a href="/admin/zoos"><i class="material-icons waves-effect">map</i>Zoos</a></li>
+  <li><a href="/admin/animals"><i class="material-icons waves-effect">pets</i>Animals</a></li>
+  <li><div class="divider"></div></li>
+  <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
+  <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+</ul>
+<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var sidebarElement = document.getElementById('sidebar');
+    var instance = M.Sidenav.init(sidebarElement);
+  });
+</script>
+<style>
+header, main, footer {
+  padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}
+</style>
+<% end %>
