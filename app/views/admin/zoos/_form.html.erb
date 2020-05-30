@@ -15,11 +15,6 @@
   <% end %>
 
   <div class="row">
-    <iframe id="map-preview" width="100%" height="450" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ1cdRl2XAwoAR_WUoKRXLQTY&key=AIzaSyD61sv96TYTvIyQ6k-7jQna0XjJUVUST3w" allowfullscreen></iframe>
-  </div>
-
-  <div class="row">
     <div class="input-field col s6">
       <i class="material-icons prefix">account_circle</i>
       <%= form.text_field :name, placeholder: "Los Angeles Zoo", 'data-length': 120 %>
@@ -40,27 +35,22 @@ src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ1cdRl2XAwoAR_WUoK
       <%= form.label :description %>
     </div>
 
+    <% if @zoo.cover_photo.attached? %>
+      <img src="<%= url_for(@zoo.cover_photo) %>%">
+    <% end %>
+
+    <div class="file-field input-field col s12">
+      <div class="btn">
+        <i class="material-icons">add_a_photo</i>
+        <%= form.file_field :cover_photo %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+
     <div class="input-field col s12">
       <%= form.submit class: "waves-effect waves-light btn white-text" %>
     </div>
   </div>
-
-  <script>
-  var addressInput = document.getElementById("zoo_address");
-  var map = document.getElementById("map-preview");
-
-  // If there's a value for the address input, set the map preview's source to the input value
-  if (addressInput.value) {
-    map.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyD61sv96TYTvIyQ6k-7jQna0XjJUVUST3w&q=" + addressInput.value;
-  // If there's no value, don't show the map initially
-  } else {
-    map.style.display = "none";
-  }
-
-  addressInput.addEventListener("keyup", function(event) {
-    const query = encodeURI(event.target.value);
-    map.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyD61sv96TYTvIyQ6k-7jQna0XjJUVUST3w&q=" + query;
-    map.style.display = "block";
-  });
-  </script>
 <% end %>
