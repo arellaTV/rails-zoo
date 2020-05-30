@@ -8,7 +8,7 @@
       <h2><%= zoo.name %></h2>
       <p><%= zoo.description %></p>
       <p><%= link_to 'Edit', edit_admin_zoo_path(zoo) %></td>
-      <p><%= link_to 'Delete', zoo_path(zoo),
+      <p><%= link_to 'Delete', admin_zoo_path(zoo),
       method: :delete,
       data: { confirm: 'Are you sure?' } %></p>
     </div>

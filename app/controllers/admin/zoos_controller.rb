@@ -38,7 +38,7 @@ class Admin::ZoosController < ApplicationController
     @zoo = Zoo.find(params[:id])
     @zoo.destroy
   
-    redirect_to zoos_path
+    redirect_to admin_zoos_path
   end
 
   private
