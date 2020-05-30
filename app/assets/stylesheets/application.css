@@ -14,11 +14,21 @@
  *= require_self
  */
 
- .page-footer {
-   margin-top: 60px;
- }
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
- /* Override button colors */
- .btn input {
-   color: white;
- }
+main {
+  flex: 1 0 auto;
+}
+
+.page-footer {
+  margin-top: 60px;
+}
+
+/* Override button colors */
+.btn input {
+  color: white;
+}
