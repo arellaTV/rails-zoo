@@ -11,6 +11,16 @@
       <%= form.text_area :description, class: "materialize-textarea", 'data-length': 512 %>
       <%= form.label :description %>
     </div>
+
+    <div class="file-field input-field col s12">
+      <div class="btn">
+        <i class="material-icons">add_a_photo</i>
+        <%= form.file_field :cover_photo %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
   </div>
   <div class="input-field col s12">
     <%= form.submit class: "waves-effect waves-light btn white-text" %>

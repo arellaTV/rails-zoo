@@ -15,6 +15,15 @@
   <% end %>
 
   <div class="row">
+    <% if @zoo.cover_photo.attached? %>
+      <div class="col s12 m6 offset-m3">
+        <img class="materialboxed" src="<%= url_for(@zoo.cover_photo) %>" width="100%" />
+      </div>
+    <% end %>
+
+  </div>
+
+  <div class="row">
     <div class="input-field col s6">
       <i class="material-icons prefix">account_circle</i>
       <%= form.text_field :name, placeholder: "Los Angeles Zoo", 'data-length': 120 %>
@@ -34,10 +43,6 @@
       <%= form.text_area :description, class: "materialize-textarea", 'data-length': 512 %>
       <%= form.label :description %>
     </div>
-
-    <% if @zoo.cover_photo.attached? %>
-      <img src="<%= url_for(@zoo.cover_photo) %>%">
-    <% end %>
 
     <div class="file-field input-field col s12">
       <div class="btn">

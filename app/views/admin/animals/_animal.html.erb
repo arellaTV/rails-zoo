@@ -1,5 +1,9 @@
 <li class="collection-item avatar">
-  <i class="material-icons circle">pets</i>
+  <% if @zoo.cover_photo.attached? %>
+    <img src="<%= url_for(@zoo.cover_photo) %>" alt="" class="circle">
+  <% else %>
+    <i class="material-icons circle">pets</i>
+  <% end %>
   <div class="content">
     <b class="name"><%= animal.name %></b>
     <p><%= animal.description %></p>
