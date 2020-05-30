@@ -16,11 +16,13 @@
 
 <div class="section">
   <h2>Animals</h2>
-  <% if @zoo.animals.length > 0 %>
-    <%= render @zoo.animals %>
-  <% else %>
-    <p>There are no animals recorded in this listing yet.</p>
-  <% end %>
+  <div class="row">
+    <% if @zoo.animals.length > 0 %>
+      <%= render @zoo.animals %>
+    <% else %>
+      <p>There are no animals recorded in this listing yet.</p>
+    <% end %>
+  </div>
 </div>
 
 <div class="section">
