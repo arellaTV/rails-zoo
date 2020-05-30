@@ -54,9 +54,7 @@ src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ1cdRl2XAwoAR_WUoK
 
   addressInput.addEventListener("keyup", function(event) {
     const query = encodeURI(event.target.value);
-    console.log({ query });
     map.src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyD61sv96TYTvIyQ6k-7jQna0XjJUVUST3w&q=" + query;
   });
-  console.dir({ addressInput });
   </script>
 <% end %>
