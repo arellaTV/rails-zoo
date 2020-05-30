@@ -10,11 +10,9 @@
       <% end %>
     </div>
   </li>
-  <li><a href="/admin/zoos"><i class="material-icons waves-effect">home</i>Home</a></li>
   <li><div class="divider"></div></li>
   <li><a class="subheader">Content Types</a></li>
-  <li><a href="/admin/zoos"><i class="material-icons waves-effect">map</i>Zoos</a></li>
-  <li><a href="/admin/animals"><i class="material-icons waves-effect">pets</i>Animals</a></li>
+  <li><a href="/admin/zoos"><i class="material-icons waves-effect">pets</i>Zoos</a></li>
   <li><div class="divider"></div></li>
   <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
   <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
