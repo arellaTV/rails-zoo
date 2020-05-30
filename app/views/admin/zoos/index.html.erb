@@ -1,20 +1,30 @@
-<h1>Zoo Directory</h1>
 
-<%= link_to 'New zoo', new_admin_zoo_path %>
+<div class="section">
+  <h1>Zoo Directory</h1>
+  <div class="divider"></div>
+</div>
 
-<ul class="zoo-list collection">
-  <% @zoos.each do |zoo| %>
-    <li class="zoo-list__item collection-item">
-      <div>
-        <b><%= link_to zoo.name, edit_admin_zoo_path(zoo) %></b>
-        <span class="secondary-content">
-          <%= link_to admin_zoo_path(zoo),
-            method: :delete,
-            data: { confirm: 'Are you sure?' } do %>
-            <i class="material-icons">delete</i>
-          <% end %>
-        </span>
-      </div>
-    </li>
+<div class="section">
+  <%= link_to new_admin_zoo_path, class: "waves-effect waves-light btn" do %>
+    <i class="material-icons left">add</i> Add a Zoo
   <% end %>
-</ul>
+</div>
+
+<div class="section">
+  <ul class="zoo-list collection">
+    <% @zoos.each do |zoo| %>
+      <li class="zoo-list__item collection-item">
+        <div>
+          <b><%= link_to zoo.name, edit_admin_zoo_path(zoo) %></b>
+          <span class="secondary-content">
+            <%= link_to admin_zoo_path(zoo),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } do %>
+              <i class="material-icons">delete</i>
+            <% end %>
+          </span>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
