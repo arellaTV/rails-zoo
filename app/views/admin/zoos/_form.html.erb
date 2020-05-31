@@ -74,11 +74,13 @@
 
   <div class="section">
     <div class="col s12">
-      <%= link_to admin_zoo_path(@zoo),
-        class: "waves-effect waves-light btn white-text red left",
-        method: :delete,
-        data: { confirm: 'Are you sure?' } do %>
-        <i class="material-icons left">delete</i> Delete
+      <% if @zoo.id %>
+        <%= link_to admin_zoo_path(@zoo),
+          class: "waves-effect waves-light btn white-text red left",
+          method: :delete,
+          data: { confirm: 'Are you sure?' } do %>
+          <i class="material-icons left">delete</i> Delete
+        <% end %>
       <% end %>
       <%= form.submit class: "waves-effect waves-light btn white-text right" %>
     </div>
