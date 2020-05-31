@@ -31,9 +31,16 @@ git push heroku master
 heroku run rake db:migrate
 ```
 
-Check if one dyno is running
+Start one dyno
 
 ```
+heroku ps:scale web=1
+```
+
+Or restart one dyno
+
+```
+heroku ps:scale web=0
 heroku ps:scale web=1
 ```
 
