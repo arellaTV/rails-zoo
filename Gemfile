@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 
+# Use AWS S3 for Active Storage on production
+gem "aws-sdk-s3", require: false
+
 # Use Devise for authentication
 gem 'devise', '~> 4.2'
 
