@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Settings for default url (Devise needs this)
+  config.action_mailer.default_url_options = { host: ENV['HEROKU_HOST'] }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
