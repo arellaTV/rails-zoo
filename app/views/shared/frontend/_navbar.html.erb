@@ -1,5 +1,24 @@
 <nav>
   <div class="nav-wrapper teal">
-    <a href="/" class="brand-logo center">Rails Zoo</a>
+    <div class="container">
+      <a href="/" class="brand-logo">Rails Zoo</a>
+      <a href="#" data-target="sidebar" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/zoos">Zoos</a></li>
+        <li><a href="/animals">Animals</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
+
+<ul class="sidenav right" id="sidebar">
+  <li><a href="/zoos">Zoos</a></li>
+  <li><a href="/animals">Animals</a></li>
+</ul>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, { edge: "right" });
+});
+</script>
