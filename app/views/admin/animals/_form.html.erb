@@ -1,4 +1,4 @@
-<%= form_with scope: :animal, url: admin_animals_path, local: true do |form| %>
+<%= form_with model: @animal, url: "/admin/animals/#{@animal.id}", local: true do |form| %>
   <div class="row">
     <div class="input-field col s6">
       <i class="material-icons prefix">account_circle</i>
@@ -24,9 +24,20 @@
   </div>
 
   <div class="section">
-    <h3>Animals</h3>
+    <h3>Zoos</h3>
     <ul class="collection">
-      <%= render 'zoo_selector', collection: @zoos %>
+      <% @zoos.each do |zoo| %>
+        <li class="zoo-list__item collection-item">
+          <div>
+            <label>
+            <%= form.label "zoo_id_#{zoo.id}" do %>
+              <%= form.radio_button :zoo_id, zoo.id, class: "with-gap" %>
+              <span><b><%= zoo.name %> <%= link_to zoo_path(zoo), target: "_blank" do %><i class="material-icons waves-effect tiny">open_in_new</i><% end %></b></span>
+            </label>
+            <% end %>
+          </div>
+        </li>
+      <% end %>
     </ul>
   </div>
 
