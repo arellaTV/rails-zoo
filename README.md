@@ -26,7 +26,6 @@ bundle exec rake db:migrate
 ### Deployment instructions
 
 ```
-RAILS_ENV=production bundle exec rake assets:precompile
 heroku create
 git push heroku master
 heroku run rake db:migrate
