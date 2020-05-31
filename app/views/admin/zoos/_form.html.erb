@@ -14,14 +14,25 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <% if @zoo.cover_photo.attached? %>
+  <% if @zoo.cover_photo.attached? %>
+    <div class="row">
       <div class="col s12">
         <%= image_tag (@zoo.cover_photo.variant(resize_to_fill: [1200, 630, { gravity: 'Center' }])), class: "materialboxed", width: "100%" %>
 
       </div>
-    <% end %>
+    </div>
+  <% end %>
 
+  <div class="row">
+    <div class="file-field input-field col s12">
+      <div class="btn">
+        <i class="material-icons">add_a_photo</i>
+        <%= form.file_field :cover_photo %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
   </div>
 
   <div class="row">
@@ -44,19 +55,32 @@
       <%= form.text_area :description, class: "materialize-textarea", 'data-length': 512 %>
       <%= form.label :description %>
     </div>
+  </div>
 
-    <div class="file-field input-field col s12">
-      <div class="btn">
-        <i class="material-icons">add_a_photo</i>
-        <%= form.file_field :cover_photo %>
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text">
-      </div>
+  <div class="row">
+    <h3>Animals</h3>
+    <div class="col s12">
+      <ul class="collection">
+        <% if @zoo.animals.length > 0 %>
+          <%= render @zoo.animals %>
+        <% else %>
+          <li class="collection-item">There are no animals recorded in this listing yet.</li>
+        <% end %>
+      </ul>
     </div>
+  </div>
 
-    <div class="input-field col s12">
-      <%= form.submit class: "waves-effect waves-light btn white-text" %>
+  <div class="divider"></div>
+
+  <div class="section">
+    <div class="col s12">
+      <%= link_to admin_zoo_path(@zoo),
+        class: "waves-effect waves-light btn white-text red left",
+        method: :delete,
+        data: { confirm: 'Are you sure?' } do %>
+        <i class="material-icons left">delete</i> Delete
+      <% end %>
+      <%= form.submit class: "waves-effect waves-light btn white-text right" %>
     </div>
   </div>
 <% end %>
