@@ -14,19 +14,16 @@
     </div>
   <% end %>
 
+  <% if @animal.cover_photo.attached? %>
+    <div class="row">
+      <div class="col s12">
+        <%= image_tag (@animal.cover_photo.variant(resize_to_fill: [1200, 630, { gravity: 'Center' }])), class: "materialboxed", width: "100%" %>
+
+      </div>
+    </div>
+  <% end %>
+
   <div class="row">
-    <div class="input-field col s6">
-      <i class="material-icons prefix">account_circle</i>
-      <%= form.text_field :name, 'data-length': 120 %>
-      <%= form.label :name %>
-    </div>
-
-    <div class="input-field col s12">
-      <i class="material-icons prefix">description</i>
-      <%= form.text_area :description, class: "materialize-textarea", 'data-length': 512 %>
-      <%= form.label :description %>
-    </div>
-
     <div class="file-field input-field col s12">
       <div class="btn">
         <i class="material-icons">add_a_photo</i>
@@ -38,25 +35,45 @@
     </div>
   </div>
 
-  <div class="section">
-    <h3>Zoo</h3>
-    <ul class="collection">
-      <% if @zoos %>
-        <% @zoos.each do |zoo| %>
-          <li class="zoo-list__item collection-item">
-            <div>
-              <label>
-              <%= form.label "zoo_id_#{zoo.id}" do %>
-                <%= form.radio_button :zoo_id, zoo.id, class: "with-gap" %>
-                <span><b><%= zoo.name %> <%= link_to zoo_path(zoo), target: "_blank" do %><i class="material-icons waves-effect tiny">open_in_new</i><% end %></b></span>
-              </label>
-              <% end %>
-            </div>
-          </li>
-        <% end %>
-      <% end %>
-    </ul>
+  <div class="row">
+    <div class="input-field col s6">
+      <i class="material-icons prefix">account_circle</i>
+      <%= form.text_field :name, 'data-length': 120 %>
+      <%= form.label :name %>
+    </div>
   </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <i class="material-icons prefix">description</i>
+      <%= form.text_area :description, class: "materialize-textarea", 'data-length': 512 %>
+      <%= form.label :description %>
+    </div>
+  </div>
+
+  <div class="row">
+    <h3>Zoo</h3>
+    <div class="col s12">
+      <ul class="collection">
+        <% if @zoos %>
+          <% @zoos.each do |zoo| %>
+            <li class="zoo-list__item collection-item">
+              <div>
+                <label>
+                <%= form.label "zoo_id_#{zoo.id}" do %>
+                  <%= form.radio_button :zoo_id, zoo.id, class: "with-gap" %>
+                  <span><b><%= zoo.name %> <%= link_to zoo_path(zoo), target: "_blank" do %><i class="material-icons waves-effect tiny">open_in_new</i><% end %></b></span>
+                </label>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
 
   <div class="section">
     <div class="col s12">
