@@ -16,7 +16,7 @@
   <div class="row">
     <div class="col s12 m7">
       <h3>Details</h3>
-      <p><%= @zoo.description %></p>
+      <div><%= simple_format(@zoo.description) %></div>
     </div>
     <% if @zoo.address.length > 0 %>
       <div class="col s12 m5">
