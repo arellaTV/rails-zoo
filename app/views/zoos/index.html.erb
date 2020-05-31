@@ -5,8 +5,13 @@
 </div>
 
 <%= form_tag(zoos_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search]) %>
-  <%= submit_tag("Search", name: nil) %>
+  <div class="row">
+    <div class="input-field col s6">
+      <i class="material-icons prefix">search</i>
+      <%= text_field_tag(:search, params[:search]) %>
+      <label for="search">Search</label>
+    </div>
+  </div>
 <% end %>
 
 <div class="section">
