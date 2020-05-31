@@ -1,59 +1,63 @@
-<%= render 'shared/sidebar' %>
+<% content_for :header do %>
+  <%= render "shared/admin/navbar"%>
+<% end %>
 
-<div class="section">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
-  <div class="divider"></div>
-</div>
+<% content_for :content do %>
+  <%= render 'shared/sidebar' %>
 
-<div class="section">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="section">
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <div class="divider"></div>
+  </div>
 
-    <div class="row">
-      <div class="input-field col s12 m6">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="section">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+        <div class="input-field col s12 m6">
+          <%= f.label :current_password %><br />
+          <%= f.password_field :current_password, autocomplete: "current-password" %>
+        </div>
       </div>
-      <div class="input-field col s12 m6">
-        <%= f.label :current_password %><br />
-        <%= f.password_field :current_password, autocomplete: "current-password" %>
-      </div>
-    </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+          <% if @minimum_password_length %>
+            <br />
+            <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
+        <div class="input-field col s12 m6">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+      </div>
+
+      <div class="row actions">
+        <div class="input-field col s12 m6">
+          <%= f.submit "Update", class: "waves-effect waves-light btn white-text" %>
+        </div>
+      </div>
     <% end %>
+  </div>
 
+  <div class="section">
+    <h3>Cancel my account</h3>
     <div class="row">
       <div class="input-field col s12 m6">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-        <% if @minimum_password_length %>
-          <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
-        <% end %>
+        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "waves-effect waves-light btn white-text" %>
       </div>
-      <div class="input-field col s12 m6">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-    </div>
-
-    <div class="row actions">
-      <div class="input-field col s12 m6">
-        <%= f.submit "Update", class: "waves-effect waves-light btn white-text" %>
-      </div>
-    </div>
-  <% end %>
-</div>
-
-<div class="section">
-  <h3>Cancel my account</h3>
-  <div class="row">
-    <div class="input-field col s12 m6">
-      <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "waves-effect waves-light btn white-text" %>
     </div>
   </div>
-</div>
-
-<%= link_to "Back", :back %>
+<% end %>
