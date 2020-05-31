@@ -8,14 +8,3 @@
   <h3>Details</h3>
   <%= render 'form' %>
 </div>
-
-<div class="section">
-  <h3>Animals</h3>
-  <ul class="collection">
-    <% if @zoo.animals.length > 0 %>
-      <%= render @zoo.animals %>
-    <% else %>
-      <li class="collection-item">There are no animals recorded in this listing yet.</li>
-    <% end %>
-  </ul>
-</div>
