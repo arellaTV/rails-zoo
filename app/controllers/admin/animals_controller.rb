@@ -22,8 +22,6 @@ class Admin::AnimalsController < ApplicationController
     else
       render 'new'
     end
-
-    redirect_to edit_admin_animal_path(@animal)
   end
 
   def update
