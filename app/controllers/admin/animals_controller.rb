@@ -20,9 +20,9 @@ class Admin::AnimalsController < ApplicationController
   def create
     @animal = Animal.new(animal_params)
     if @animal.save
-      redirect_to "/admin/animals/#{@animal.id}/edit"
+      redirect_to edit_admin_animal_path(@animal)
     else
-      render 'new'
+      redirect_to new_admin_animal_path(@animal)
     end
   end
 
