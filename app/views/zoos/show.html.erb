@@ -35,7 +35,19 @@
       <h3>Animals</h3>
       <ul class="collection">
         <% if @zoo.animals.length > 0 %>
-          <%= render @zoo.animals %>
+          <% @zoo.animals.each do |animal| %>
+            <li class="collection-item avatar">
+              <% if animal.cover_photo.attached? %>
+                <img src="<%= url_for(animal.cover_photo.variant(resize_to_fill: [42, 42, { gravity: 'Center' }])) %>" alt="" class="circle">
+              <% else %>
+                <i class="material-icons circle">pets</i>
+              <% end %>
+              <div class="content">
+                <b class="name"><%= link_to animal.name, animal_path(animal) %></b>
+                <p><%= truncate(animal.description, length: 120) %></p>
+              </div>
+            </li>
+          <% end %>
         <% else %>
           <li class="collection-item">There are no animals recorded in this listing yet.</li>
         <% end %>
