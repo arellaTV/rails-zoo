@@ -1,0 +1,40 @@
+<div class="section">
+  <%= link_to 'Back to Zoo Directory', zoos_path %>
+  <h2><%= @animal.name %></h2>
+  <div class="divider"></div>
+</div>
+
+<div class="row">
+  <% if @animal.cover_photo.attached? %>
+    <div class="col s12">
+      <%= image_tag (@animal.cover_photo.variant(resize_to_fill: [1200, 630, { gravity: 'Center' }])), class: "materialboxed", width: "100%" %>
+
+    </div>
+  <% end %>
+</div>
+ 
+<div class="section">
+  <div class="row">
+    <div class="col s12">
+      <h3>Details</h3>
+      <p><%= @animal.description %></p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="row">
+    <div class="col s12">
+      <h3>Zoo</h3>
+      <ul class="collection">
+        <li class="zoo-list__item collection-item">
+          <div>
+            <label>
+              <span><b><%= link_to @animal.zoo.name, zoo_path(@animal.zoo), target: "_blank" %></b></span>
+            </label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

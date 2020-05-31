@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :animals
   end
 
+  resources :animals
+
   # Admin pages
   namespace 'admin' do
     resources :zoos do

@@ -5,7 +5,7 @@
     <i class="material-icons circle">pets</i>
   <% end %>
   <div class="content">
-    <b class="name"><%= animal.name %></b>
+    <b class="name"><%= link_to animal.name, animal_path(animal) %></b>
     <p><%= animal.description %></p>
   </div>
 </li>
