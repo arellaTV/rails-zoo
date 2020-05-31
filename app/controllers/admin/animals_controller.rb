@@ -16,24 +16,26 @@ class Admin::AnimalsController < ApplicationController
   end
 
   def create
-    @zoo = Zoo.find(params[:animal][:zoo_id])
-    @animal = @zoo.animals.create(animal_params)
+    @animal = Animal.new(animal_params)
+    if @animal.save
+      redirect_to "/admin/animals/#{@animal.id}/edit"
+    else
+      render 'new'
+    end
+
     redirect_to edit_admin_animal_path(@animal)
   end
 
   def update
-    @animal = Animal.find(params[:id])
-    @zoo = Zoo.find(params[:animal][:zoo_id])
-   
+    @animal = Animal.find(params[:id])   
     @animal.update(animal_params)
     redirect_to edit_admin_animal_path(@animal)
   end
 
   def destroy
     @animal = Animal.find(params[:id])
-    @zoo = Zoo.find(params[:animal][:zoo_id])
     @animal.destroy
-    redirect_to edit_admin_animals_path
+    redirect_to admin_animals_path
   end
 
   private
