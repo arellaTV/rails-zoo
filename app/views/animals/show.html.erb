@@ -26,11 +26,15 @@
     <div class="col s12">
       <h3>Zoo</h3>
       <ul class="collection">
-        <li class="zoo-list__item collection-item">
-          <div>
-            <label>
-              <span><b><%= link_to @animal.zoo.name, zoo_path(@animal.zoo), target: "_blank" %></b></span>
-            </label>
+        <li class="zoo-list__item collection-item avatar">
+          <% if @animal.zoo.cover_photo.attached? %>
+            <img src="<%= url_for(@animal.zoo.cover_photo.variant(resize_to_fill: [42, 42, { gravity: 'Center' }])) %>" alt="" class="circle">
+          <% else %>
+            <i class="material-icons circle">map</i>
+          <% end %>
+          <div class="content">
+            <span><b><%= link_to @animal.zoo.name, zoo_path(@animal.zoo) %></b></span>
+            <p><%= truncate(@animal.zoo.description, length: 120) %></p>
           </div>
         </li>
       </ul>
