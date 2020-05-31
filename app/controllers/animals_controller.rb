@@ -2,7 +2,7 @@ class AnimalsController < ApplicationController
   layout "frontend"
 
   def index
-    @animals = Animal.all
+    @animals = Animal.search(params[:search])
   end
 
   def show
