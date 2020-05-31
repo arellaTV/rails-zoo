@@ -1,3 +1,16 @@
 // Place all the styles related to the Homepage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.homepage-hero {
+  align-items: center;
+  display: flex;
+  margin-top: 60px;
+  min-height: 480px;
+}
+
+.homepage-hero__image {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+}

@@ -1,2 +1,9 @@
-<h1>Zoo App</h1>
-<%= link_to 'List of Zoos', controller: 'zoos' %>
+<div class="section">
+  <div class="row homepage-hero">
+    <div class="col s12 center-align">
+      <%= image_tag("elephant", class: "homepage-hero__image") %>
+      <h3>Easily track zoos and the animals that live there. Built with Ruby on Rails.</h3>
+      <%= link_to 'Find a Zoo', "/zoos", class: 'waves-effect waves-light btn white-text btn-large' %>
+    </div>
+  </div>
+</div>
