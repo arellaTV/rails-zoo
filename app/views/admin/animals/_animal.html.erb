@@ -8,10 +8,4 @@
     <b class="name"><%= animal.name %></b>
     <p><%= animal.description %></p>
   </div>
-  <%= link_to ['admin', animal.zoo, animal],
-    method: :delete,
-    data: { confirm: 'Are you sure?' },
-    class: "grey-text secondary-content" do %>
-    <i class="material-icons">delete</i>
-  <% end %>
 </li>

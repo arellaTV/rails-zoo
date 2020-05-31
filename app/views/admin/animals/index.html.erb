@@ -11,20 +11,22 @@
 </div>
 
 <div class="section">
-  <ul class="animal-list collection">
+  <table class="animal-list">
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Zoo</th>
+      </tr>
+    </thead>
+    <tbody>
     <% @animals.each do |animal| %>
-      <li class="animal-list__item collection-item">
-        <div>
-          <b><%= link_to animal.name, edit_admin_animal_path(animal) %></b>
-          <span class="secondary-content">
-            <%= link_to admin_animal_path(animal),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } do %>
-              <i class="material-icons">delete</i>
-            <% end %>
-          </span>
-        </div>
-      </li>
+      <tr class="animal-list__item">
+        <td><%= link_to animal.name, edit_admin_animal_path(animal) %></td>
+        <td>
+          <%= animal.zoo.name %>
+        </td>
+      </tr>
     <% end %>
-  </ul>
+    </tbody>
+  </table>
 </div>
