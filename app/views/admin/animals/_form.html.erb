@@ -46,11 +46,13 @@
   </div>
 
   <div class="input-field col s12">
-    <%= link_to admin_animal_path(@animal),
-      class: "waves-effect waves-light btn white-text red",
-      method: :delete,
-      data: { confirm: 'Are you sure?' } do %>
-      <i class="material-icons left">delete</i> Delete
+    <% if @animal.id %>
+      <%= link_to admin_animal_path(@animal),
+        class: "waves-effect waves-light btn white-text red",
+        method: :delete,
+        data: { confirm: 'Are you sure?' } do %>
+        <i class="material-icons left">delete</i> Delete
+      <% end %>
     <% end %>
   </div>
 <% end %>
