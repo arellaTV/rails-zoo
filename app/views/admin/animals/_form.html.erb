@@ -41,18 +41,17 @@
     </ul>
   </div>
 
-  <div class="input-field col s12">
-    <%= form.submit class: "waves-effect waves-light btn white-text" %>
-  </div>
-
-  <div class="input-field col s12">
-    <% if @animal.id %>
-      <%= link_to admin_animal_path(@animal),
-        class: "waves-effect waves-light btn white-text red",
-        method: :delete,
-        data: { confirm: 'Are you sure?' } do %>
-        <i class="material-icons left">delete</i> Delete
+  <div class="section">
+    <div class="col s12">
+      <% if @animal.id %>
+        <%= link_to admin_animal_path(@animal),
+          class: "waves-effect waves-light btn white-text red left",
+          method: :delete,
+          data: { confirm: 'Are you sure?' } do %>
+          <i class="material-icons left">delete</i> Delete
+        <% end %>
       <% end %>
-    <% end %>
+      <%= form.submit class: "waves-effect waves-light btn white-text right" %>
+    </div>
   </div>
 <% end %>
